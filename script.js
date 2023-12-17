@@ -1,6 +1,5 @@
 const btnGenerate = document.getElementById("btn");
-const btnSvg = document.getElementById("svg");
-const btnPng = document.getElementById("png");
+const btnDownload = document.getElementById("download");
 const image = document.querySelector(".container")
 const canvas = document.querySelector(".canvas")
 
@@ -42,7 +41,7 @@ let generatePattern = () => {
 
 //Função para fazer download / salvar a imagem
 function downloadImage(imageName) {
-    var container = document.getElementById("image");
+    var container = document.querySelector(".container");
     html2canvas(container, { allowTaint: true }).then(function (canvas) {
         var link = document.createElement("a");
         document.body.appendChild(link);
@@ -53,12 +52,8 @@ function downloadImage(imageName) {
     });
 }
 
-btnPng.addEventListener("click", () => {
+btnDownload.addEventListener("click", () => {
     downloadImage('geometric-image.png');
-})
-
-btnSvg.addEventListener("click", () => {
-    downloadImage('geometric-image.svg');
 })
 
 //Gera a imagem
