@@ -21,8 +21,6 @@
     grid-template-columns: repeat(5, 1fr);
     padding: 15px;
     gap: 10px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(90, 90, 100, 0.4);
 }
 
 .container div {
