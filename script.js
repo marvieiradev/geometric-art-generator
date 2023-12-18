@@ -26,6 +26,15 @@ const colors = [
     "#33ff33"
 ];
 
+//Cores disponíveis para o fundo da imagem
+const bgcolors = [
+    "#171717",
+    "#0B0E39",
+    "#00021A",
+    "#0A0A0A",
+    "#000000"
+];
+
 const boxes = document.querySelectorAll(".container div");
 
 //Função para gerar as formas geometricas aleatoriamente
@@ -34,8 +43,10 @@ let generatePattern = () => {
         box.className = "";
         let i = Math.floor(Math.random() * shapes.length);
         let j = Math.floor(Math.random() * colors.length);
+        let k = Math.floor(Math.random() * bgcolors.length);
         box.classList.add(shapes[i]);
         box.style.backgroundColor = colors[j];
+        image.style.backgroundColor = bgcolors[k];
     })
 }
 
