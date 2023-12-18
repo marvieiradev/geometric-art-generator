@@ -39,21 +39,21 @@ let generatePattern = () => {
     })
 }
 
-//Função para fazer download / salvar a imagem
+//Função para fazer download / salvar a imagem usando a biblioteca "DomToImage"
 function downloadImage(imageName) {
-    var container = document.querySelector(".container");
-    html2canvas(container, { allowTaint: true }).then(function (canvas) {
-        var link = document.createElement("a");
-        document.body.appendChild(link);
-        link.download = imageName;
-        link.href = canvas.toDataURL();
-        link.target = "_blank";
-        link.click();
-    });
+    domtoimage.toJpeg(document.querySelector('.container'),
+        { quality: 0.99 },
+        { style: "transform:(scale(50,50))" })
+        .then(function (dataUrl) {
+            var link = document.createElement('a');
+            link.download = imageName;
+            link.href = dataUrl;
+            link.click();
+        });
 }
 
 btnDownload.addEventListener("click", () => {
-    downloadImage('geometric-image.png');
+    downloadImage('geometric-image.jpg');
 })
 
 //Gera a imagem
